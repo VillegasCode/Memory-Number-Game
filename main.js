@@ -55,6 +55,12 @@ function destapar(id) {
             //Increase hits
             aciertos++;
             mostrarAciertos.innerHTML = `Aciertos: ${aciertos}`;
+
+            if (aciertos == 8) {
+                mostrarAciertos.innerHTML = `Aciertos: ${aciertos} 👏`;
+                mostrarMovimientos.innerHTML = `Movimientos: ${movimientos} 🤟😎`;
+            }
+
     } else {
         //Show for a moment values and come back to hidden
         setTimeout(()=>{
