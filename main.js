@@ -6,9 +6,11 @@ let tarjeta3 = null;
 let primerResultado = null;
 let segundoResultado = null;
 let movimientos = 0;
+let aciertos = 0;
 
-//Pointing to document HTML
+//Pointing to document HTML to its ID with QUOTATION MARKS
 let mostrarMovimientos = document.getElementById('movimientos');
+let mostrarAciertos = document.getElementById('aciertos');
 
 //Create a array with numbers
 let numeros = [1,1,2,2,3,3,4,4,5,5,6,6,7,7,8,8];
@@ -45,5 +47,23 @@ function destapar(id) {
         //Increase movements
         movimientos++;
         mostrarMovimientos.innerHTML = `Movimientos: ${movimientos}`;
+
+        if (primerResultado == segundoResultado){
+            //Reset counter of upface cards
+            tarjetasDestapadas = 0;
+
+            //Increase hits
+            aciertos++;
+            mostrarAciertos.innerHTML = `Aciertos: ${aciertos}`;
+    } else {
+        //Show for a moment values and come back to hidden
+        setTimeout(()=>{
+            tarjeta1.innerHTML = ' ';
+            tarjeta2.innerHTML = ' ';
+            tarjeta1.disabled = false;
+            tarjeta2.disabled = false;
+            tarjetasDestapadas = 0;
+        }, 2000);
+    }
     }
 }
