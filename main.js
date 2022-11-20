@@ -7,10 +7,15 @@ let primerResultado = null;
 let segundoResultado = null;
 let movimientos = 0;
 let aciertos = 0;
+let timer = 30;
+let timerInicial = 30;
+let tiempoRegresivoId = null;
 
 //Pointing to document HTML to its ID with QUOTATION MARKS
 let mostrarMovimientos = document.getElementById('movimientos');
 let mostrarAciertos = document.getElementById('aciertos');
+let temporizador = false;
+let mostrarTiempo = document.getElementById('t-restante');
 
 //Create a array with numbers
 let numeros = [1,1,2,2,3,3,4,4,5,5,6,6,7,7,8,8];
@@ -20,8 +25,37 @@ numeros = numeros.sort(()=>{return Math.random() - 0.5});
 //Write on console the same array with disort numbers
 console.log(numeros);
 
+//Functions
+function contarTiempo(){
+    tiempoRegresivoId = setInterval(()=>{
+        timer--;
+        mostrarTiempo.innerHTML = `Tiempo: ${timer} segundos`;
+    if (timer == 0) {
+        clearInterval(tiempoRegresivoId);
+        bloquearTarjetas();
+    }
+    }, 1000);
+}
+
+
+//
+function bloquearTarjetas(){
+    for (let i=0; i<= 15; i++){
+        let tarjetaBloqueada = document.getElementById(i);
+        tarjetaBloqueada.innerHTML = numeros[i];
+        tarjetaBloqueada.disabled = true;
+    }
+}
+
+
 //We create a MAIN FUNCTION named destapar
 function destapar(id) {
+
+    if (temporizador == false){
+        contarTiempo();
+        temporizador = true;
+    }
+
     tarjetasDestapadas++;
     console.log(tarjetasDestapadas);
 
@@ -58,6 +92,7 @@ function destapar(id) {
 
             if (aciertos == 8) {
                 mostrarAciertos.innerHTML = `Aciertos: ${aciertos} 👏`;
+                mostrarTiempo.innerHTML = `Fantástico! ⏰ Sólo demoraste ${timerInicial - timer} segundos`;
                 mostrarMovimientos.innerHTML = `Movimientos: ${movimientos} 🤟😎`;
             }
 
@@ -69,7 +104,7 @@ function destapar(id) {
             tarjeta1.disabled = false;
             tarjeta2.disabled = false;
             tarjetasDestapadas = 0;
-        }, 2000);
+        }, 800);
     }
     }
 }
