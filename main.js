@@ -2,8 +2,13 @@
 let tarjetasDestapadas = 0;
 let tarjeta1 = null;
 let tarjeta2 = null;
+let tarjeta3 = null;
 let primerResultado = null;
 let segundoResultado = null;
+let movimientos = 0;
+
+//Pointing to document HTML
+let mostrarMovimientos = document.getElementById('movimientos');
 
 //Create a array with numbers
 let numeros = [1,1,2,2,3,3,4,4,5,5,6,6,7,7,8,8];
@@ -36,5 +41,9 @@ function destapar(id) {
 
         //Disabled second button
         tarjeta2.disabled = true;
+
+        //Increase movements
+        movimientos++;
+        mostrarMovimientos.innerHTML = `Movimientos: ${movimientos}`;
     }
 }
