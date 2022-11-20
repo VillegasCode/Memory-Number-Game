@@ -21,10 +21,20 @@ function destapar(id) {
     if (tarjetasDestapadas == 1){
         //Show first number id
         tarjeta1 = document.getElementById(id);
-        primerResultado = numeros[id]
+        //First button pressed id captured
+        primerResultado = numeros[id];
         tarjeta1.innerHTML = primerResultado;
 
         //Disable the first button pushed
         tarjeta1.disabled = true;
+    } else if(tarjetasDestapadas == 2){
+        //Show second number
+        tarjeta2 = document.getElementById(id);
+        //Second button pressed id captured
+        segundoResultado = numeros[id];
+        tarjeta2.innerHTML = segundoResultado;
+
+        //Disabled second button
+        tarjeta2.disabled = true;
     }
 }
