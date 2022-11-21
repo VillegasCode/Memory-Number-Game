@@ -7,6 +7,7 @@ let primerResultado = null;
 let segundoResultado = null;
 let movimientos = 0;
 let aciertos = 0;
+let temporizador = false;
 let timer = 30;
 let timerInicial = 30;
 let tiempoRegresivoId = null;
@@ -14,7 +15,6 @@ let tiempoRegresivoId = null;
 //Pointing to document HTML to its ID with QUOTATION MARKS
 let mostrarMovimientos = document.getElementById('movimientos');
 let mostrarAciertos = document.getElementById('aciertos');
-let temporizador = false;
 let mostrarTiempo = document.getElementById('t-restante');
 
 //Create a array with numbers
@@ -40,7 +40,8 @@ function contarTiempo(){
 
 //
 function bloquearTarjetas(){
-    for (let i=0; i<= 15; i++){
+    for (let i=0; i<=15; i++){
+        //console.log(numeros.length);
         let tarjetaBloqueada = document.getElementById(i);
         tarjetaBloqueada.innerHTML = numeros[i];
         tarjetaBloqueada.disabled = true;
@@ -91,6 +92,8 @@ function destapar(id) {
             mostrarAciertos.innerHTML = `Aciertos: ${aciertos}`;
 
             if (aciertos == 8) {
+                //STOP THE COUNTER
+                clearInterval(tiempoRegresivoId);
                 mostrarAciertos.innerHTML = `Aciertos: ${aciertos} 👏`;
                 mostrarTiempo.innerHTML = `Fantástico! ⏰ Sólo demoraste ${timerInicial - timer} segundos`;
                 mostrarMovimientos.innerHTML = `Movimientos: ${movimientos} 🤟😎`;
