@@ -2,7 +2,7 @@
   <h1>Numbers Memory Game</h1>
   <img src="https://github.com/VillegasCode/Memory-Number-Game/blob/main/images/app-memory-number-game.png" width="900" alt="Numbers Memory Game" />
 
-  <a href="https://villegascode.github.io/Pokemon-Memory-Game/" target="_blank">Try the Numbers Memory Game click here</a>
+  <a href="https://villegascode.github.io/Memory-Number-Game/" target="_blank">Try the Numbers Memory Game click here</a>
 </div>
 
 <div align="center">
@@ -39,7 +39,7 @@ The statistics show us "Aciertos - Successes", "Movimientos - Moves" and "Tiempo
 
 ## :white_check_mark: Requirements ##
 
-None, just click on the following link: <a href="https://villegascode.github.io/Pokemon-Memory-Game/" target="_blank">Try the Numbers Memory Game click here</a>
+None, just click on the following link: <a href="https://villegascode.github.io/Memory-Number-Game/" target="_blank">Try the Numbers Memory Game click here</a>
 
 ## :memo: License ##
 
